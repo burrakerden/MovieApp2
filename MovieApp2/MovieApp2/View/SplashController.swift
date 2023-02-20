@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import Firebase
+
 
 class SplashController: UIViewController {
 
+    @IBOutlet weak var remoteText: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkConnection()
-        navigationController?.isNavigationBarHidden = true
     }
 
     //MARK: - Check Network Connection
@@ -21,12 +25,11 @@ class SplashController: UIViewController {
         if NetworkMonitor.shared.isConnected {
             print("connected")
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                print("3 seconds")
                 let vc = MovieController()
+                self.navigationController?.isNavigationBarHidden = true
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {
-            print("not")
             alert()
         }
     }
@@ -37,6 +40,7 @@ class SplashController: UIViewController {
     func alert() {
         let ac = UIAlertController(title: "WARNING", message: "Check your internet connection", preferredStyle: .alert)
 //        ac.addAction(UIAlertAction(title: "Try again", style: .default, handler: { _ in
+//            NetworkMonitor.shared.startMonitoring()
 //            self.checkConnection()
 //        }))
         present(ac, animated: true)

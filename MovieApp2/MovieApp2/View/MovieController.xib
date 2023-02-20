@@ -10,29 +10,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieController" customModule="MovieApp2" customModuleProvider="target">
             <connections>
-                <outlet property="loadingAnimation" destination="oLm-qm-LSk" id="8wa-aS-ues"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewForAnimation" destination="roT-pK-pL9" id="3br-Ko-moU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLm-qm-LSk">
-                    <rect key="frame" x="12.666666666666657" y="158.66666666666663" width="350" height="350"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roT-pK-pL9" userLabel="viewForAnimation">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="350" id="63O-tg-bu8"/>
-                        <constraint firstAttribute="width" constant="350" id="a1e-QA-pLW"/>
-                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemGray2Color"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="oLm-qm-LSk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2wH-l6-EP1"/>
-                <constraint firstItem="oLm-qm-LSk" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="f8X-k6-Hr8"/>
+                <constraint firstItem="roT-pK-pL9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9Gn-4q-de8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="roT-pK-pL9" secondAttribute="bottom" id="Adv-tf-NUu"/>
+                <constraint firstItem="roT-pK-pL9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nEM-sy-Wyc"/>
+                <constraint firstItem="roT-pK-pL9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="pyK-7s-21a"/>
             </constraints>
             <point key="canvasLocation" x="46.564885496183201" y="20.422535211267608"/>
         </view>
@@ -40,9 +38,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

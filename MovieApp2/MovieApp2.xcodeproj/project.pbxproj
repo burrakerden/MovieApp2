@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9604AB2729A37E88006B1585 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9604AB2629A37E88006B1585 /* FirebaseAnalytics */; };
+		9604AB2929A384DA006B1585 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9604AB2829A384D9006B1585 /* GoogleService-Info.plist */; };
 		96C2C571299E56710036DC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C2C570299E56710036DC60 /* AppDelegate.swift */; };
 		96C2C573299E56710036DC60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C2C572299E56710036DC60 /* SceneDelegate.swift */; };
 		96C2C57A299E56730036DC60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C2C579299E56730036DC60 /* Assets.xcassets */; };
@@ -21,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9604AB2829A384D9006B1585 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96C2C56D299E56710036DC60 /* MovieApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C2C570299E56710036DC60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96C2C572299E56710036DC60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9604AB2729A37E88006B1585 /* FirebaseAnalytics in Frameworks */,
 				96C2C590299F5F400036DC60 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				96C2C570299E56710036DC60 /* AppDelegate.swift */,
+				9604AB2829A384D9006B1585 /* GoogleService-Info.plist */,
 				96C2C572299E56710036DC60 /* SceneDelegate.swift */,
 			);
 			path = App;
@@ -97,10 +102,10 @@
 		96C2C58B299E579F0036DC60 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				96C2C584299E57090036DC60 /* MovieController.swift */,
-				96C2C585299E57090036DC60 /* MovieController.xib */,
 				96C2C591299F6AA90036DC60 /* SplashController.swift */,
 				96C2C592299F6AA90036DC60 /* SplashController.xib */,
+				96C2C584299E57090036DC60 /* MovieController.swift */,
+				96C2C585299E57090036DC60 /* MovieController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			name = MovieApp2;
 			packageProductDependencies = (
 				96C2C58F299F5F400036DC60 /* Lottie */,
+				9604AB2629A37E88006B1585 /* FirebaseAnalytics */,
 			);
 			productName = MovieApp2;
 			productReference = 96C2C56D299E56710036DC60 /* MovieApp2.app */;
@@ -154,6 +160,7 @@
 			mainGroup = 96C2C564299E56710036DC60;
 			packageReferences = (
 				96C2C58E299F5F400036DC60 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				9604AB2529A37E88006B1585 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 96C2C56E299E56710036DC60 /* Products */;
 			projectDirPath = "";
@@ -174,6 +181,7 @@
 				96C2C57D299E56730036DC60 /* LaunchScreen.storyboard in Resources */,
 				96C2C57A299E56730036DC60 /* Assets.xcassets in Resources */,
 				96C2C596299F72950036DC60 /* loading.json in Resources */,
+				9604AB2929A384DA006B1585 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,11 +342,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = burrakerden.MovieApp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -364,11 +374,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = burrakerden.MovieApp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -404,6 +416,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9604AB2529A37E88006B1585 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		96C2C58E299F5F400036DC60 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -415,6 +435,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9604AB2629A37E88006B1585 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9604AB2529A37E88006B1585 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
 		96C2C58F299F5F400036DC60 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 96C2C58E299F5F400036DC60 /* XCRemoteSwiftPackageReference "lottie-ios" */;
