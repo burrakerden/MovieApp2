@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="91" id="KGk-i7-Jjw" customClass="MainTableViewCell" customModule="MovieApp2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKX-L0-7hl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPc-Be-OOa">
+                                <rect key="frame" x="139" y="53.666666666666657" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XWU-Xv-FwS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hbp-NJ-WTd">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XWU-Xv-FwS" firstAttribute="top" secondItem="FKX-L0-7hl" secondAttribute="top" id="K4s-kB-p1g"/>
+                            <constraint firstItem="XPc-Be-OOa" firstAttribute="centerX" secondItem="FKX-L0-7hl" secondAttribute="centerX" id="MXb-yw-hgw"/>
+                            <constraint firstItem="XWU-Xv-FwS" firstAttribute="leading" secondItem="FKX-L0-7hl" secondAttribute="leading" id="cAm-bh-4WB"/>
+                            <constraint firstItem="XPc-Be-OOa" firstAttribute="centerY" secondItem="FKX-L0-7hl" secondAttribute="centerY" id="eT9-Ev-a2J"/>
+                            <constraint firstAttribute="bottom" secondItem="XWU-Xv-FwS" secondAttribute="bottom" id="gIf-ap-Y4A"/>
+                            <constraint firstAttribute="trailing" secondItem="XWU-Xv-FwS" secondAttribute="trailing" id="wi6-xy-GFY"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FKX-L0-7hl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PCM-FC-Lcc"/>
+                    <constraint firstItem="FKX-L0-7hl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Uye-XA-HiE"/>
+                    <constraint firstAttribute="bottom" secondItem="FKX-L0-7hl" secondAttribute="bottom" id="vqy-3j-LRs"/>
+                    <constraint firstAttribute="trailing" secondItem="FKX-L0-7hl" secondAttribute="trailing" id="xhf-xP-tt3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="mainCollectionView" destination="XWU-Xv-FwS" id="hQz-a5-COM"/>
+                <outlet property="tableCell" destination="XPc-Be-OOa" id="91l-Ot-PG6"/>
+            </connections>
+            <point key="canvasLocation" x="138.93129770992365" y="2.8169014084507045"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

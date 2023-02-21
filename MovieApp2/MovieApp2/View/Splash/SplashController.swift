@@ -12,11 +12,13 @@ import Firebase
 class SplashController: UIViewController {
 
     @IBOutlet weak var remoteText: UILabel!
+    var middleText = "Loodos"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkConnection()
+        remoteText.text = middleText
     }
 
     //MARK: - Check Network Connection
@@ -27,7 +29,7 @@ class SplashController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 let vc = MovieController()
                 self.navigationController?.isNavigationBarHidden = true
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.pushViewController(vc, animated: false)
             }
         } else {
             alert()
