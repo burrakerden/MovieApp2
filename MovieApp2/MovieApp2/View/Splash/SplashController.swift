@@ -28,7 +28,6 @@ class SplashController: UIViewController {
             print("connected")
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 let vc = MovieController()
-                self.navigationController?.isNavigationBarHidden = true
                 self.navigationController?.pushViewController(vc, animated: false)
             }
         } else {

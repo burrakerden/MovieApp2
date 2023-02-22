@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieController" customModule="MovieApp2" customModuleProvider="target">
             <connections>
+                <outlet property="indicator" destination="6sH-dN-QJR" id="QUB-PU-yx7"/>
                 <outlet property="mainSearchBar" destination="haf-Mz-PwZ" id="V2B-B6-ytf"/>
                 <outlet property="mainTableView" destination="0nX-0m-qtZ" id="qMJ-uV-3IV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0nX-0m-qtZ">
-                    <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                    <rect key="frame" x="0.0" y="103" width="393" height="708"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="haf-Mz-PwZ">
@@ -40,13 +41,18 @@
                     <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6sH-dN-QJR">
+                    <rect key="frame" x="186.66666666666666" y="811" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="haf-Mz-PwZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="DAm-65-GQg"/>
                 <constraint firstItem="haf-Mz-PwZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ETv-1v-u96"/>
+                <constraint firstItem="6sH-dN-QJR" firstAttribute="top" secondItem="0nX-0m-qtZ" secondAttribute="bottom" id="Lnh-IM-5tc"/>
                 <constraint firstItem="roT-pK-pL9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QTo-O6-bvO"/>
+                <constraint firstItem="6sH-dN-QJR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RHl-bw-aIS"/>
                 <constraint firstItem="haf-Mz-PwZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RdC-r3-aJD"/>
                 <constraint firstItem="roT-pK-pL9" firstAttribute="top" secondItem="haf-Mz-PwZ" secondAttribute="bottom" id="STk-oA-eGF"/>
                 <constraint firstItem="0nX-0m-qtZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZDN-Ek-ObL"/>
@@ -54,7 +60,7 @@
                 <constraint firstItem="0nX-0m-qtZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ry4-Zd-xNc"/>
                 <constraint firstItem="0nX-0m-qtZ" firstAttribute="top" secondItem="haf-Mz-PwZ" secondAttribute="bottom" id="vPM-55-rcj"/>
                 <constraint firstItem="roT-pK-pL9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="wyT-D6-FRy"/>
-                <constraint firstItem="0nX-0m-qtZ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="x5L-hC-mhp"/>
+                <constraint firstItem="0nX-0m-qtZ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-7" id="x5L-hC-mhp"/>
             </constraints>
             <point key="canvasLocation" x="46.564885496183201" y="20.422535211267608"/>
         </view>
