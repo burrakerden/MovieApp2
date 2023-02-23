@@ -12,7 +12,7 @@ import Alamofire
 class ViewModel {
     
 //    var movieData: [Search]?
-    var movieDataClosure: (([Search]) -> Void)?
+    var movieData: (([Search]) -> Void)?
     var movieDetailData: ((MovieDetailApi) -> Void)?
     
     //MARK: - GET DATA
@@ -20,7 +20,7 @@ class ViewModel {
     func getMovieData(searchText: String, page: Int) {
         Service().getMovie(page: page, searchText: searchText){ result in
             guard let data = result?.search else {return}
-            self.movieDataClosure?(data)
+            self.movieData?(data)
 //            print(data)
         } onError: { error in
             print(error)

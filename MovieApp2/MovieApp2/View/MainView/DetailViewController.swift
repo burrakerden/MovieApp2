@@ -50,13 +50,13 @@ class DetailViewController: UIViewController {
         let url = URL(string: detailData?.poster ?? "")
         detailPoster.kf.setImage(with: url)
         detailTitle.text = detailData?.title
-        detailReleased.text = detailData?.released
-        detailAwards.text = detailData?.awards
-        detailGenre.text = detailData?.genre
-        detailRating.text = detailData?.imdbRating
-        detailPlot.text = detailData?.plot
-        detailMeta.text = detailData?.metascore
-        detailDirector.text = detailData?.director
+        detailReleased.text = (detailData?.released)?.replacingOccurrences(of: "N/A", with: "...")
+        detailAwards.text = (detailData?.awards)?.replacingOccurrences(of: "N/A", with: "...")
+        detailGenre.text = (detailData?.genre)?.replacingOccurrences(of: "N/A", with: "...")
+        detailRating.text = (detailData?.imdbRating)?.replacingOccurrences(of: "N/A", with: "...")
+        detailPlot.text = (detailData?.plot)?.replacingOccurrences(of: "N/A", with: "...")
+        detailMeta.text = (detailData?.metascore)?.replacingOccurrences(of: "N/A", with: "...")
+        detailDirector.text = (detailData?.director)?.replacingOccurrences(of: "N/A", with: "...")
     }
 
 }
