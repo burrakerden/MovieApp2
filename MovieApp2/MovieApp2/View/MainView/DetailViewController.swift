@@ -53,9 +53,15 @@ class DetailViewController: UIViewController {
         detailReleased.text = (detailData?.released)?.replacingOccurrences(of: "N/A", with: "...")
         detailAwards.text = (detailData?.awards)?.replacingOccurrences(of: "N/A", with: "...")
         detailGenre.text = (detailData?.genre)?.replacingOccurrences(of: "N/A", with: "...")
-        detailRating.text = (detailData?.imdbRating)?.replacingOccurrences(of: "N/A", with: "...")
+        detailRating.text = """
+                            Imdb Rating:
+                            \((detailData?.imdbRating)?.replacingOccurrences(of: "N/A", with: "...") ?? "")
+                            """
         detailPlot.text = (detailData?.plot)?.replacingOccurrences(of: "N/A", with: "...")
-        detailMeta.text = (detailData?.metascore)?.replacingOccurrences(of: "N/A", with: "...")
+        detailMeta.text = """
+                          Metacritic Rating:
+                          \((detailData?.metascore)?.replacingOccurrences(of: "N/A", with: "...") ?? "")
+                          """
         detailDirector.text = (detailData?.director)?.replacingOccurrences(of: "N/A", with: "...")
     }
 
