@@ -11,12 +11,9 @@ It will be an app with 3 screens, using firebase, showing movies with a search o
 ## Features
 * MVVM Design Pattern
 * XIB
-* UICollectionView
 * UITableView
 * UISearchBar
 * Firebase
-* Custom CollectionView Cell
-* SDWebImage
-* SDWebImageSVGCoder
+* Lottie
 * Kingfisher
 * Alamofire
