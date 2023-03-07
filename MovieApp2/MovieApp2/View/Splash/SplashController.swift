@@ -40,10 +40,10 @@ class SplashController: UIViewController {
     
     func alert() {
         let ac = UIAlertController(title: "WARNING", message: "Check your internet connection", preferredStyle: .alert)
-//        ac.addAction(UIAlertAction(title: "Try again", style: .default, handler: { _ in
-//            NetworkMonitor.shared.startMonitoring()
-//            self.checkConnection()
-//        }))
+        ac.addAction(UIAlertAction(title: "Try again", style: .default, handler: { _ in
+            NetworkMonitor.shared.startMonitoring()
+            self.checkConnection()
+        }))
         present(ac, animated: true)
     }
 

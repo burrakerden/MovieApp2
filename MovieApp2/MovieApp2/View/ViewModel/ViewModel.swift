@@ -11,29 +11,43 @@ import Alamofire
 
 class ViewModel {
     
-//    var movieData: [Search]?
     var movieData: (([Search]) -> Void)?
     var movieDetailData: ((MovieDetailApi) -> Void)?
+    var checkMovieData: ((Bool?) -> Void)?
     
     //MARK: - GET DATA
     
     func getMovieData(searchText: String, page: Int) {
         Service().getMovie(page: page, searchText: searchText){ result in
-            guard let data = result?.search else {return}
-            self.movieData?(data)
-//            print(data)
+            if result?.response == "True" {
+                self.checkMovieData?(true)
+                guard let data = result?.search else {return}
+                self.movieData?(data)
+            } else {
+                self.checkMovieData?(false)
+            }
         } onError: { error in
-            print(error)
+            print("ERROR: ", error.localizedDescription)
         }
+            
     }
 
     func getDetailData(imdbID: String) {
         DetailService().getMovieDetail(imdbID: imdbID){ result in
             guard let data = result else {return}
             self.movieDetailData?(data)
-//            print(data)
         } onError: { error in
             print(error)
         }
+    }
+    
+    func getPaginationData(searchText: String, page: Int) {
+        Service().getMovie(page: page, searchText: searchText){ result in
+                guard let data = result?.search else {return}
+                self.movieData?(data)
+        } onError: { error in
+            print("ERROR: ", error.localizedDescription)
+        }
+            
     }
 }

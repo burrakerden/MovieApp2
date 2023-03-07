@@ -20,7 +20,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailMeta: UILabel!
     @IBOutlet weak var detailDirector: UILabel!
     
-    
     var imdbID = ""
     
     var model = ViewModel()
@@ -32,7 +31,6 @@ class DetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         bind(imdbID: imdbID)
     }
-
 
     //MARK: - GET DATA
     

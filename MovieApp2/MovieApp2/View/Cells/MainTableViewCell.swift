@@ -15,8 +15,6 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var cellType: UILabel!
     @IBOutlet weak var cellDate: UILabel!
     
-    
-        
     override func awakeFromNib() {
         super.awakeFromNib()
     }

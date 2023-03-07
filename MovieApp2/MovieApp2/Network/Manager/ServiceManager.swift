@@ -17,7 +17,6 @@ extension ServiceManager {
             guard let model = response.value else {
                 print(response)
                 return
-                
             }
             onSuccess(model)
         }

@@ -18,16 +18,22 @@ class MovieController: UIViewController {
     var movieData: [Search]?
     var searchText = ""
     var pageNum = 1
+    var timer: Timer?
     
     private var animationView: LottieAnimationView!
     @IBOutlet weak var viewForAnimation: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        config()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func config() {
+        setupUI()
         setupAnimation()
         indicator.isHidden = true
     }
@@ -46,19 +52,32 @@ class MovieController: UIViewController {
         mainTableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "MainTableViewCell")
         navigationItem.backButtonTitle = ""
         navigationController?.navigationBar.tintColor = .black
-        self.indicator.isHidden = true
-        self.indicator.stopAnimating()
+        mainSearchBar.delegate = self
     }
     
     //MARK: - GET DATA
     
     func bind(page: Int, searchText: String) {
         model.getMovieData(searchText: searchText, page: page)
-        model.movieData = {[weak self] value in
+        model.checkMovieData = {[weak self] value in
             guard let self = self else {return}
-            self.movieData = value
-            self.mainTableView.reloadData()
-            self.setupUI()
+            guard let value = value else {return}
+            if value {
+                self.model.movieData = {[weak self] value in
+                    guard let self = self else {return}
+                    self.movieData = value
+                    self.mainTableView.reloadData()
+                    self.indicator.isHidden = true
+//                    self.indicator.stopAnimating()
+                }
+            } else {
+                self.movieData?.removeAll()
+                self.mainTableView.reloadData()
+                let ac = UIAlertController(title: "WARNING", message: "No Data", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(ac, animated: true)
+
+            }
         }
     }
 }
@@ -77,6 +96,7 @@ extension MovieController: UITableViewDelegate, UITableViewDataSource {
         cell.cellImage.kf.setImage(with: url)
         cell.cellTitle.text = movieData.title
         cell.cellDate.text = movieData.year
+        cell.cellType.text = movieData.type?.capitalized
         return cell
     }
     
@@ -97,12 +117,12 @@ extension MovieController: UITableViewDelegate, UITableViewDataSource {
             indicator.isHidden = false
             indicator.startAnimating()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
-                model.getMovieData(searchText: searchText, page: pageNum)
+                model.getPaginationData(searchText: searchText, page: pageNum)
                 model.movieData = {[weak self] value in
                     guard let self = self else {return}
                     self.movieData?.append(contentsOf: value)
                     self.mainTableView.reloadData()
-                    self.setupUI()
+//                    self.setupUI()
                 }
             }
             pageNum += 1
@@ -115,19 +135,31 @@ extension MovieController: UITableViewDelegate, UITableViewDataSource {
 
 extension MovieController: UISearchBarDelegate {
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchText = searchText
-        if searchText.count > 3 {
-            let searchText = searchText.replacingOccurrences(of: " ", with: "+")
-            bind(page: 1, searchText: searchText)
-            self.animationView.stop()
-            self.viewForAnimation.isHidden = true
-            print(searchText)
-        } else {
-            self.animationView.play()
-            self.viewForAnimation.isHidden = false
-            pageNum = 1
-            movieData?.removeAll()
-        }
+        pageNum = 1
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false, block: { _ in
+            if searchText.count > 3 {
+                self.animationView.stop()
+                self.viewForAnimation.isHidden = true
+                let searchText = searchText.replacingOccurrences(of: " ", with: "+")
+                self.searchText = searchText
+                self.bind(page: 1, searchText: searchText)
+                print(searchText)
+            } else {
+                self.animationView.play()
+                self.viewForAnimation.isHidden = false
+                self.movieData?.removeAll()
+                self.mainTableView.reloadData()
+                self.indicator.isHidden = true
+            }
+            })
+        
+
     }
 }
